@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Page from './Page';
-import './App.css';
 import _textbooks from './textbooks.json';
 
 import Button from '@mui/material/Button';

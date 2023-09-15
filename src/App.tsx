@@ -1,4 +1,4 @@
-import React, { useState, createRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Page from './Page';
 import './App.css';
 import _textbooks from './textbooks.json';
@@ -104,7 +104,7 @@ function App() {
       </div>
       <br/>
       <div className="Book">
-        <Page noPage={leftPage == 0} imageUrl={currentBook.url.replace('{{id}}', padPageNumber(leftPage))}/>
+        <Page noPage={leftPage === 0} imageUrl={currentBook.url.replace('{{id}}', padPageNumber(leftPage))}/>
         <Page noPage={false} imageUrl={currentBook.url.replace('{{id}}',  padPageNumber(leftPage + 1))}/>
       </div>
 

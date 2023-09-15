@@ -1,2 +1,2 @@
 # Textbook Viewer
-Client for various textbook servers. 
+Client for various textbook servers.  

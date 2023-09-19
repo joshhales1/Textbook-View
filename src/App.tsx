@@ -15,12 +15,16 @@ const textbooks: Textbook[] = _textbooks;
 
 function App() {
 
-  const [currentBook, setCurrentBook] = useState<Textbook>(textbooks[0]);
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentBook, setCurrentBook] = useState<Textbook>();
+  const [currentPage, setCurrentPage] = useState<number>();
 
   const [pageInput, setPageInput] = useState<string>("1");
 
   useEffect(() => {
+      if (currentBook === undefined) {
+        return;
+      }
+
       changePage(localStorage.getItem(currentBook.url) ?? "");
   }, [currentBook]);
 
@@ -29,6 +33,10 @@ function App() {
   }, []);
 
   function changePage(pageNumber: number | string) {
+
+    if (currentBook === undefined) {
+      return;
+    }
 
     let _pageNumber = +pageNumber;
 
@@ -57,6 +65,10 @@ function App() {
 
   function padPageNumber(pageNumber: number) {
     return pageNumber.toString().padStart(3, '0');
+  }
+
+  if (currentPage === undefined || currentBook === undefined) {
+    return null;
   }
 
   const leftPage = (Math.floor(currentPage / 2) * 2);
